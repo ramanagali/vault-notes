@@ -1,7 +1,7 @@
 # Vault Commands
 
 
-## 1 Vault Initialization
+## 1. Vault Initialization
 
 ```
 vault operator init -key-shares=5 -key-threshold=3
@@ -35,7 +35,7 @@ export VAULT_TOKEN="s.XmpNPoi9sRhYtdKHaQhkHP6x"
 vault status
 ```
 
-## 2 SECRETS
+## 2. SECRETS
 
 ```
 vault secrets list
@@ -127,7 +127,7 @@ vault lease revoke aws/creds/ec2-role/0bce0782-32aa-25ec-f61d-c026ff22106
 
 vault secrets disable -path=aws aws
 ```
-## 2 Vault AUTHENTICATION
+## 2. Vault AUTHENTICATION
 
 ### 2.1 token
 ```
@@ -199,7 +199,7 @@ vault write auth/aws/role/dev-role-iam \
 vault auth disable aws
 vault path-help auth/aws
 ```
-# 3 app role pull authentication
+# 3. App role pull authentication
 ```
 vault policy write jenkins -<<EOF
 # Read-only permission on secrets stored at 'secret/mysql/webapp'
@@ -236,7 +236,7 @@ VAULT_TOKEN="" vault kv get secret/mysql/webapp
 vault auth disable approle
 ```
 
-# 4 Policies
+# 4. Policies
 ```
 vault secrets list
 vault auth list
@@ -268,7 +268,7 @@ vault kv put gvr/webui/ user="venkat"
 vault token capabilities $ADMIN_TOKEN sys/auth/approle
 vault token capabilities $ADMIN_TOKEN identity/entity
 ```
-# 5 TOKENS
+# 5. TOKENS
 
 ### 5.1. Tokens with use limit  
 ```
@@ -435,7 +435,7 @@ vault write transit/decrypt/my-key ciphertext=
 vault write -f transit/datakey/plaintext/my-key
 ```
 
-# 8 Vault API
+# 8. Vault API
 
 ```
 curl http://127.0.0.1:8200/v1/sys/init
