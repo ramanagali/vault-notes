@@ -54,7 +54,7 @@ vault secrets enable -path=gvr kv
 
 vault kv put gvr/webui user=venkat pass=xyz
 vault kv get gvr/webui
-vault kv list gvr/webui
+vault kv list gvr/
 
 vault secrets tune -default-lease-ttl=72h gvr/
 
