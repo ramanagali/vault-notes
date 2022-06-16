@@ -479,3 +479,7 @@ vault secrets list -output-curl-string
 vault kv get -output-curl-string gvr/webui
 
 ```
+ <hr />
+ 
+* [Provision Vault Server using Vagrant](https://github.com/ramanagali/vault-server)
+* [Vault youtube playlist - my youtube channel](https://www.youtube.com/playlist?list=PLFkEchqXDZx7CuMTbxnlGVflB7UKwf_N3) 
