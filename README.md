@@ -136,8 +136,6 @@ vault login token=hvs.f6OTpenqZRwL4tKGapFM8yoP
 
 vault auth list
 
-curl --header "X-Vault-Token: hvs.f6OTpenqZRwL4tKGapFM8yoP" --request LIST http://127.0.0.1:8200/v1/auth/token/accessors | jq
-
 vault token create
 vault login token=hvs.f6OTpenqZRwL4tKGapFM8yoP
 vault token revoke s.xxxxxx
@@ -154,7 +152,6 @@ vault read auth/userpass/users/gvr
 
 vault login -method=userpass username=gvr password=12345
 
-curl --header "X-Vault-Token: hvs.f6OTpenqZRwL4tKGapFM8yoP" http://127.0.0.1:8200/v1/auth/userpass/users/gvr | jq
 
 vault auth disable userpass	
 
@@ -464,6 +461,10 @@ curl -H "X-Vault-Token: $(vault print token)" https://127.0.0.1:8200/v1/secret/c
 
 curl -H "X-Vault-Request: true" -H "X-Vault-Token: $(vault print token)" http://127.0.0.1:8200/v1/auth/userpass/users/gvr
 
+curl --header "X-Vault-Token: $(vault print token)" http://127.0.0.1:8200/v1/auth/userpass/users/gvr | jq
+
+curl -H "X-Vault-Request: true" -H "X-Vault-Token: $(vault print token)" http://127.0.0.1:8200/v1/gvr/webui | jq '.data.username'
+
 ```
 
 ## Generete curl API command using CLI
@@ -475,5 +476,6 @@ vault read -output-curl-string auth/userpass/users/gvr
 
 vault secrets list -output-curl-string
 
+vault kv get -output-curl-string gvr/webui
 
 ```
