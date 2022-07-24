@@ -479,6 +479,24 @@ vault secrets list -output-curl-string
 vault kv get -output-curl-string gvr/webui
 
 ```
+
+# 9. Vault Audit
+
+Prerequisites for enabling audit log
+
+```
+touch /var/log/vault_audit.log
+chmod 644 /var/log/vault_audit.log
+chown vault:vault /var/log/vault_audit.log
+```
+
+```
+vault audit enable file file-path=/var/log/vault_audit.log
+vault audit list -detailed
+vault audit list -output-curl-string
+vault audit disable file/
+```
+
  <hr />
  
 * [Provision Vault Server using Vagrant](https://github.com/ramanagali/vault-server)
